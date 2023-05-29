@@ -1,35 +1,26 @@
+import Home from "./components/routes/home/home.component";
+import NavigationBar from "./components/routes/navigation/navigation.component";
 import "./categories.styles.scss";
-import Directory from "./components/directory/directory.component";
-const App = () => {
-  const categories = [
-    {
-      id: 1,
-      title: "hats",
-      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
-    },
-    {
-      id: 2,
-      title: "jackets",
-      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
-    },
-    {
-      id: 3,
-      title: "sneakers",
-      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
-    },
-    {
-      id: 4,
-      title: "womens",
-      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
-    },
-    {
-      id: 5,
-      title: "mens",
-      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
-    },
-  ];
+import { Routes, Route } from "react-router-dom";
+import SignIn from "./components/routes/sign-in/sign-in.component";
 
-  return <Directory categories={categories} />;
+const Shop = () => {
+  return <h1>shop</h1>;
+};
+
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" Component={NavigationBar}>
+        {/* fungsi index berguna untuk jika mengakses route / akan merender dua komponent yaitu navigationbar dan home */}
+        <Route index element={<Home />} />
+        {/* path shp adalah chilldren dari Home, agar bisa dirender 2 component tersebut  saat mengakses route /home/shop bisa menginport outlet di dalam komponent home dan menaruh outlet/chilldre shop sesuai yang kitas inginkan */}
+
+        <Route path="shop" element={<Shop />} />
+        <Route path="sign-in" element={<SignIn />} />
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
