@@ -2,7 +2,7 @@ import Home from "./components/routes/home/home.component";
 import NavigationBar from "./components/routes/navigation/navigation.component";
 import "./categories.styles.scss";
 import { Routes, Route } from "react-router-dom";
-import SignIn from "./components/routes/sign-in/sign-in.component";
+import Authentication from "./components/routes/authentication/authentication.component";
 
 const Shop = () => {
   return <h1>shop</h1>;
@@ -17,7 +17,7 @@ const App = () => {
         {/* path shp adalah chilldren dari Home, agar bisa dirender 2 component tersebut  saat mengakses route /home/shop bisa menginport outlet di dalam komponent home dan menaruh outlet/chilldre shop sesuai yang kitas inginkan */}
 
         <Route path="shop" element={<Shop />} />
-        <Route path="sign-in" element={<SignIn />} />
+        <Route path="auth" element={<Authentication />} />
       </Route>
     </Routes>
   );
