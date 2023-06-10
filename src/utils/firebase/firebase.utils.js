@@ -10,6 +10,8 @@ import {
   signInWithPopup,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
@@ -89,4 +91,14 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
 
   return signInWithEmailAndPassword(auth, email, password);
+};
+
+export const signOutUser = async () => {
+  return await signOut(auth);
+};
+
+// fungsi method onAuthStateChange adalah untuk mendapatkan event jika suatu auth berubah di firebase/untuk mendeteksi adanya perubahan auth di firebase
+// untuk mengetahui user mana yang sedang login dan mengetahui event jika user masih login atau tidaks
+export const onAuthSatteChangeListener = (callback) => {
+  return onAuthStateChanged(auth, callback);
 };
