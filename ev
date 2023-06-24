@@ -1,0 +1,71 @@
+[33mcommit ca8a44233885eea3b2d931e423f021b4f9b773bb[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: gungandre <gungd86@gmail.com>
+Date:   Tue Jun 13 15:42:59 2023 +0800
+
+    created checkout page along with checkout item and checkout functionality
+
+[33mcommit 2be4b22ee7188b7331c94f2082348193b517c2b8[m
+Author: gungandre <gungd86@gmail.com>
+Date:   Sat Jun 10 22:24:39 2023 +0800
+
+    added in our addToCart feature
+
+[33mcommit 08cdbc0464486f5dfc69a4b68207f3bd501ceedf[m
+Author: gungandre <gungd86@gmail.com>
+Date:   Sat Jun 10 20:47:30 2023 +0800
+
+    adding cart context and shopping icon as well as cart dropdown
+
+[33mcommit afb92b8d2ff7672355c61e891fd3f014e52554f3[m
+Author: gungandre <gungd86@gmail.com>
+Date:   Sun Jun 4 20:13:17 2023 +0800
+
+    created authentication page component alongside sign in form
+
+[33mcommit 168243ec790d1705a48011ab1288986428763344[m
+Author: gungandre <gungd86@gmail.com>
+Date:   Sat Jun 3 12:57:15 2023 +0800
+
+    created sign up component, the foorm input component, button component
+
+[33mcommit 4acecc7a50e7cd66b80f631844374fdaf12c3874[m
+Author: gungandre <gungd86@gmail.com>
+Date:   Mon May 29 15:46:35 2023 +0800
+
+    added our sign in component as well as firebase utils brought in firebase libraries
+
+[33mcommit 75b0f8fee6bc93700bc2cff900d3066aefcbb8f7[m[33m ([m[1;31morigin/lesson-1[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mlesson-1[m[33m)[m
+Author: gungandre <gungd86@gmail.com>
+Date:   Sat May 27 11:06:16 2023 +0800
+
+    menambahkan directory page dengan directory item dan directory component
+
+[33mcommit 5ff609b624c27260464b132fb7fb96eb1a107fe5[m
+Author: Yihua Zhang <yihuazhang2@gmail.com>
+Date:   Fri Mar 11 21:49:05 2022 -0500
+
+    Update README.md
+
+[33mcommit 25101d2993a939db103991afc0b7baaf2fdc01ac[m
+Author: Yihua Zhang <yihuazhang2@gmail.com>
+Date:   Fri Mar 11 20:53:33 2022 -0500
+
+    Update README.md
+
+[33mcommit 7ece1650e91ceabf2527bff179fc8ad7b5547214[m
+Author: Yihua Zhang <yihuazhang2@gmail.com>
+Date:   Fri Mar 11 20:53:00 2022 -0500
+
+    Update README.md
+
+[33mcommit 6dc1d4b3e0da8423fae22ab99db6bd9903e24bff[m
+Author: Yihua Zhang <yihuazhang2@gmail.com>
+Date:   Tue Feb 1 21:12:58 2022 -0500
+
+    Set up with CRA, removed CRA code and added initial categories
+
+[33mcommit 9c826e224a6a098e95a7ff52c976bdca3f388a8a[m
+Author: Yihua Zhang <yihuazhang2@gmail.com>
+Date:   Sun Jan 30 21:14:21 2022 -0500
+
+    Initialize project using Create React App
