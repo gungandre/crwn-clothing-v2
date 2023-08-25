@@ -4,25 +4,32 @@ import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
 
 // import { CategoriesProvider } from "./context/products.context";
 // import { CartProvider } from "./context/cart.context";
 
 import { Provider } from "react-redux";
-import { store } from "./store/store";
+import { store, persistor } from "./store/store";
+
+// untuk mengaplikasikan redux presist kita bisa import PresistGate dan memberikan props persoistor agar bisa di gunakan
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        {/* <UserProvider> */}
-        {/* <CategoriesProvider> */}
-        {/* <CartProvider> */}
-        <App />
-        {/* </CartProvider> */}
-        {/* </CategoriesProvider> */}
-        {/* </UserProvider> */}
-      </BrowserRouter>
+      {/* props loading pada perisgate untuk memberikan loading saat persist dimuat, bisa menambahkan elemen atau component */}
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          {/* <UserProvider> */}
+          {/* <CategoriesProvider> */}
+          {/* <CartProvider> */}
+          <App />
+          {/* </CartProvider> */}
+          {/* </CategoriesProvider> */}
+          {/* </UserProvider> */}
+        </BrowserRouter>
+      </PersistGate>
+      ]
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
