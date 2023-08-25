@@ -1,11 +1,33 @@
 import Home from "../src/routes/home/home.component";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import NavigationBar from "../src/routes/navigation/navigation.component";
 import { Routes, Route } from "react-router-dom";
 import Authentication from "./routes/authentication/authentication.component";
 import Shop from "../src/routes/shop/shop.component";
 import Checkout from "../src/routes/checkout/checkout.component";
 import "./categories.styles.scss";
+import {
+  onAuthSatteChangeListener,
+  createUserDocumentFromAuth,
+} from "./utils/firebase/firebase.utils";
+
+import { setCurrentUser } from "./store/user/user.action";
+
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = onAuthSatteChangeListener((user) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+
+      dispatch(setCurrentUser(user));
+    });
+    return unsubscribe;
+    // dispatch menjadi parameter kedua untuk menghilangkan warning di eslint
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" Component={NavigationBar}>

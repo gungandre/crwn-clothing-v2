@@ -42,21 +42,9 @@ export const UserProvider = ({ children }) => {
 
   const { currentUser } = state;
 
-  console.log("currentUser", currentUser);
-
   const setCurrentUser = (user) => {
     dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user));
   };
-  useEffect(() => {
-    const unsubscribe = onAuthSatteChangeListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-        console.log(user);
-      }
-      setCurrentUser(user);
-    });
-    return unsubscribe;
-  }, []);
 
   // fungsi usestate untuk merender ulang komponen jika ada perubahan di usecontext
 

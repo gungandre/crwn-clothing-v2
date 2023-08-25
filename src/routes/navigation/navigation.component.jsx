@@ -1,8 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
+import { useSelector } from "react-redux";
 // menginport logo crwnlogo menggunakan komponen
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
-import { UserContext } from "../../context/user.context";
+
 import {
   NavigationContainer,
   LogoContainer,
@@ -11,12 +12,17 @@ import {
 } from "./navigation.styles";
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CardDropDown from "../../components/cart-dropdown/cart-dropdown.component";
-import { CartContext } from "../../context/cart.context";
-
+// import { CartContext } from "../../context/cart.context";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { selectIsCartOpen } from "../../store/cart/cart.selector";
 const NavigationBar = () => {
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  // const { currentUser } = useContext(UserContext);
+
+  // useSelector digunakan untuk mengambil nilai state dari store
+  const currentUser = useSelector(selectCurrentUser);
+
+  const isCartOpen = useSelector(selectIsCartOpen);
 
   const signOutHandler = async () => {
     await signOutUser();

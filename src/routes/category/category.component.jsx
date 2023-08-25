@@ -1,17 +1,20 @@
 import "./category.styles.scss";
 import { useParams } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import { UseSelector, useSelector } from "react-redux";
+import { selectCategoriesMap } from "../../store/categories/category.selector";
+import { useState, useEffect } from "react";
 import { CategoriesContext } from "../../context/products.context";
 import ProductCard from "../..//components/product-card/product-card.component";
 
 const Category = () => {
   // use params digunakan untuk mengambil aprameter di url shop/...
   const { category } = useParams();
+  const categoriesMap = useSelector(selectCategoriesMap);
+
   // use context mengambil data dari google secara async
-  const { categoriesMap } = useContext(CategoriesContext);
+  // const { categoriesMap } = useContext(CategoriesContext);
 
   const [products, setProducts] = useState(categoriesMap[category]);
-  console.log("pro", category);
 
   useEffect(() => {
     setProducts(categoriesMap[category]);

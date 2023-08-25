@@ -72,7 +72,6 @@ export const addCollectionAndDocuments = async (
     batch.set(docRef, object);
   });
   await batch.commit();
-  console.log("done");
 };
 
 export const getCategoriesAndDocuments = async () => {
@@ -80,15 +79,17 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
   const querySnapshot = await getDocs(q);
 
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 
-    acc[title.toLowerCase()] = items;
+  //   const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+  //     const { title, items } = docSnapshot.data();
 
-    return acc;
-  }, {});
+  //     acc[title.toLowerCase()] = items;
 
-  return categoryMap;
+  //     return acc;
+  //   }, {});
+
+  // return categoryMap;
 };
 
 export const createUserDocumentFromAuth = async (
@@ -98,11 +99,9 @@ export const createUserDocumentFromAuth = async (
   if (!userAuth) return;
   // membuat collection dan document di firestore
   const userDocRef = doc(db, "users", userAuth.uid);
-  console.log(userDocRef);
 
   // getdoc untuk mengecek apakah collection dan atau document sudah ada di firestore dengan method exists()
   const userSnapShot = await getDoc(userDocRef);
-  console.log(userSnapShot.exists());
 
   if (!userSnapShot.exists()) {
     // jika tidak ada akan membuat data baru di fire store dengan setDoc()
