@@ -37,7 +37,6 @@ const SignInForm = () => {
   };
 
   const handleSubmit = async (event) => {
-    console.log({ email, password });
     event.preventDefault();
 
     try {

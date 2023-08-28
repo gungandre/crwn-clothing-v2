@@ -1,3 +1,5 @@
+import { createSlice } from "@reduxjs/toolkit";
+
 export const USER_ACTION_TYPES = {
   SET_CURRENT_USER: "user/SET_CURRENT_USER",
 };
@@ -6,17 +8,16 @@ const INITIAL_STATE = {
   currentUser: null,
 };
 
-// !cara menggunakan useReducer untuk mengelola state
-// reducer mempunyai 2 argumen yaitu state, dan action
-// di parameter action biasanya kita mempunyai 2 object lagi yaiut type dan payload, tergantung nama
-export const userReducer = (state = INITIAL_STATE, action) => {
-  const { type, payload } = action;
+export const userSlice = createSlice({
+  name: "user",
+  initialState: INITIAL_STATE,
+  reducers: {
+    setCurrentUser: (state, action) => {
+      state.currentUser = action.payload;
+    },
+  },
+});
 
-  switch (type) {
-    case USER_ACTION_TYPES.SET_CURRENT_USER:
-      return { ...state, currentUser: payload };
+export const { setCurrentUser } = userSlice.actions;
 
-    default:
-      return state;
-  }
-};
+export const userReducer = userSlice.reducer;

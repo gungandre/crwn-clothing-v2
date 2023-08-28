@@ -12,7 +12,7 @@ import {
   createUserDocumentFromAuth,
 } from "./utils/firebase/firebase.utils";
 
-import { setCurrentUser } from "./store/user/user.action";
+import { setCurrentUser } from "./store/user/user.reducer";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,13 @@ const App = () => {
         createUserDocumentFromAuth(user);
       }
 
-      dispatch(setCurrentUser(user));
+      const pickedUser =
+        user && (({ accessToken, email }) => ({ accessToken, email }))(user);
+
+      // karna user mengembalikan constructor function yang tidak bisa di terima oleh middleware relialize, maka valu user kita pecah di variable pivkedUser
+      // kode pickedUser sama dengan pickedUser(user), cuma ini adalah sortHandnya
+
+      dispatch(setCurrentUser(pickedUser));
     });
     return unsubscribe;
     // dispatch menjadi parameter kedua untuk menghilangkan warning di eslint
