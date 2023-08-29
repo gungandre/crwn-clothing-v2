@@ -23,7 +23,12 @@ const App = () => {
       }
 
       const pickedUser =
-        user && (({ accessToken, email }) => ({ accessToken, email }))(user);
+        user &&
+        (({ accessToken, email, displayName }) => ({
+          accessToken,
+          email,
+          displayName,
+        }))(user);
 
       // karna user mengembalikan constructor function yang tidak bisa di terima oleh middleware relialize, maka valu user kita pecah di variable pivkedUser
       // kode pickedUser sama dengan pickedUser(user), cuma ini adalah sortHandnya

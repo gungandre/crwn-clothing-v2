@@ -52,6 +52,8 @@ const NavigationBar = () => {
         </NavLinksContainer>
         {isCartOpen && <CardDropDown />}
       </NavigationContainer>
+
+      {/* outlet digunakan untuk merender chilldren elemen dari induxnya, dalam contoh ini route '/' dengan komponen NavigationBar memiliki chilldren komponen home, shop, authentication, dan checkout  */}
       <Outlet />
     </Fragment>
   );

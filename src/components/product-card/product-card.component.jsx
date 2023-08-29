@@ -4,11 +4,11 @@ import { selectCartItems } from "../../store/cart/cart.selector";
 
 import "./product-card.styles.scss";
 import Button from "../button/button.component";
-import { useContext } from "react";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
+
   const { name, price, imageUrl } = product;
 
   const addProductToCart = () => dispatch(addItemToCart(product));

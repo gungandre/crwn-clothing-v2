@@ -12,6 +12,11 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { store, persistor } from "./store/store";
 
+// stripe adalah suatu perpustakaan untuk membuat payment
+// cara menerapkannya sama seperti provider redux, app js harus di bungkus dengan elemens
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "./utils/stripe/stripe.utils";
+
 // untuk mengaplikasikan redux presist kita bisa import PresistGate dan memberikan props persoistor agar bisa di gunakan
 
 ReactDOM.render(
@@ -23,7 +28,9 @@ ReactDOM.render(
           {/* <UserProvider> */}
           {/* <CategoriesProvider> */}
           {/* <CartProvider> */}
-          <App />
+          <Elements stripe={stripePromise}>
+            <App />
+          </Elements>
           {/* </CartProvider> */}
           {/* </CategoriesProvider> */}
           {/* </UserProvider> */}

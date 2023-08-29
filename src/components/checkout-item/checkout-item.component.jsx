@@ -6,13 +6,10 @@ import {
   clearItemFromCart,
   removeItemFromCart,
 } from "../../store/cart/cart.reducer";
-import { useContext } from "react";
-import { CartContext } from "../../context/cart.context";
+
 const CheckoutItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const { name, imageUrl, price, quantity } = cartItem;
-
-  console.log("-----", cartItem);
 
   const cartItems = useSelector(selectCartItems);
   const clearItemHandler = () => dispatch(clearItemFromCart(cartItem));

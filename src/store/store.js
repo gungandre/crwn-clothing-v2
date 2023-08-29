@@ -64,7 +64,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefautMiddleware) =>
-    getDefautMiddleware({}).concat(middlewares),
+    getDefautMiddleware({ serializableCheck: false }).concat(middlewares),
   // ! property middleware harus tipe data array, nah untuk mengabungkan dengan custom middleware kita bisa menggunakan concat dengan di caining
 });
 
