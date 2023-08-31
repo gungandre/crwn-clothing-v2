@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const spinnerContainer = styled.div`
+export const SpinnerContainer = styled.div`
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -20,4 +20,11 @@ export const spinnerContainer = styled.div`
       -webkit-transform: rotate(360deg);
     }
   }
+`;
+
+export const SpinnerOverlay = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;

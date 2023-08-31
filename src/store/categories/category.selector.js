@@ -39,3 +39,10 @@ export const selectCategoriesMap = createSelector(
     }, {});
   }
 );
+
+export const selectIsLoading = createSelector(
+  [selectCategoryReducer],
+  (state) => {
+    return state.isLoading;
+  }
+);
