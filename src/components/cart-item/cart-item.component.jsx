@@ -1,6 +1,9 @@
 import "./cart-item.styles.scss";
+import { memo } from "react";
 
-const CartItem = ({ cartItem }) => {
+// saat kita menambahkan item ke keranjang kita akan merender dan menlooping semua data yang ada di dalam keranjang tersebut, oleh karena itu bisa menggunakan memo untuk mengetahui item item yag ditambahkan ke kerajabg saja yang di tambahkan, react bisa bekerja seperti itu karena di setiap looping memberi key props
+
+const CartItem = memo(({ cartItem }) => {
   const { name, quantity, imageUrl, price } = cartItem;
   return (
     <div className="cart-item-container">
@@ -13,6 +16,6 @@ const CartItem = ({ cartItem }) => {
       </div>
     </div>
   );
-};
+});
 
 export default CartItem;

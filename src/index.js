@@ -1,6 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./index.scss";
+
+import ReactDOM from "react-dom/client";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
@@ -17,9 +18,12 @@ import { store, persistor } from "./store/store";
 import { Elements } from "@stripe/react-stripe-js";
 import { stripePromise } from "./utils/stripe/stripe.utils";
 
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+
 // untuk mengaplikasikan redux presist kita bisa import PresistGate dan memberikan props persoistor agar bisa di gunakan
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       {/* props loading pada perisgate untuk memberikan loading saat persist dimuat, bisa menambahkan elemen atau component */}
@@ -36,11 +40,11 @@ ReactDOM.render(
           {/* </UserProvider> */}
         </BrowserRouter>
       </PersistGate>
-      ]
     </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

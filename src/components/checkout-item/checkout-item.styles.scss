@@ -7,6 +7,10 @@
   font-size: 20px;
   align-items: center;
 
+  @media screen and (max-width: 650px) {
+    font-size: 2.5vw;
+  }
+
   .image-container {
     width: 23%;
     padding-right: 15px;

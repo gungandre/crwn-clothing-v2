@@ -1,6 +1,12 @@
 .authentication-container {
   display: flex;
   justify-content: space-between;
-  width: 900px;
+  max-width: 900px;
   margin: 30px auto;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 900px) {
+    justify-content: center;
+    font-size: 2.5vw;
+  }
 }
